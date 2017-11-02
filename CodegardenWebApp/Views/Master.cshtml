@@ -1,0 +1,56 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@Model.Content.Name - @Umbraco.Field("pageTitle")</title>
+    <meta name="description" content="Codegarden Web Application">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/vendor/bootstrap/css/bootstrap.min.css")" />
+    
+    <!-- Custom fonts for this theme -->
+    <link rel="stylesheet" href="@Url.Content("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900")" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="@Url.Content("~/vendor/font-awesome/css/font-awesome.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/vendor/devicons/css/devicons.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/vendor/simple-line-icons/css/simple-line-icons.css")" />
+    <!-- Custom theme -->
+    <link rel="stylesheet" href="@Url.Content("~/css/resume.css")" />
+
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            @Html.Partial("Navigation/MainNavigation")
+        </nav>
+
+        <div class="container-fluid p-0">
+            @RenderBody()
+        </div>
+
+        <footer>
+            @Umbraco.Field("footerText") @DateTime.Now.Year
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+
+        <script src="@Url.Content("~/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
+        <script src="@Url.Content("~/vendor/jquery-easing/jquery.easing.min.js")"></script>
+        <script src="@Url.Content("~/scripts/resume.js")"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column">
+    <div class="my-auto">
+        <h2>Subpage Header</h2>
+        <p>Subpage content</p>
+        @Umbraco.Field("bodyText")
+    </div>
+</section>
