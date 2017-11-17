@@ -14,10 +14,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Saira Extra Condensed', serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #851934; }
+    font-family: 'Saira Extra Condensed', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #413659;
+}
 
 h1 {
   font-size: 6rem;
@@ -99,15 +100,19 @@ section.resume-section {
     padding-bottom: 3rem !important; } }
 
 .bg-primary {
-  background-color: #851934 !important; }
+    background-color: #413659 !important;
+}
 
 .text-primary {
-  color: #851934 !important; }
+    color: #413659 !important;
+}
 
 a {
-  color: #851934; }
-  a:hover, a:focus, a:active {
-    color: #824027; }
+    color: #413659;
+}
+    a:hover, a:focus, a:active {
+        color: #675e7a;
+    }
 
 /* For SVG logo */
 .st0{fill:#fff;}
