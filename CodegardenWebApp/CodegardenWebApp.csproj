@@ -297,18 +297,14 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
-    <Content Include="Views\Homepage.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Partials\Navigation\MainNavigation.cshtml" />
-    <Content Include="Views\Partials\Pages\Contact.cshtml" />
-    <Content Include="Views\Partials\Pages\Frontpage.cshtml" />
-    <Content Include="Views\Partials\Pages\People.cshtml" />
-    <Content Include="Views\Partials\Pages\Info.cshtml" />
-    <Content Include="Views\Partials\Pages\Schedule.cshtml" />
-    <Content Include="Views\Partials\Pages\Awards.cshtml" />
-    <Content Include="Views\Partials\Pages\Polls.cshtml" />
-    <Content Include="Views\Partials\Pages\Speakers.cshtml" />
-    <Content Include="Views\Subpage.cshtml" />
+    <Content Include="Views\Awards.cshtml" />
+    <Content Include="Views\Frontpage.cshtml" />
+    <Content Include="Views\Info.cshtml" />
+    <Content Include="Views\Schedule.cshtml" />
+    <Content Include="Views\Speakers.cshtml" />
+    <Content Include="Views\Workshop.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -340,7 +336,6 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="css\resume.css" />
-    <Content Include="css\resume.min.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="scripts\resume.js" />

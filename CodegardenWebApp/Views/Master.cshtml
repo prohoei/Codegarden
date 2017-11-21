@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <!doctype html>
@@ -9,11 +9,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>@Umbraco.Field("websiteName", recursive: true) - @Umbraco.Field("metaTitle")</title>
+    <meta name="description" content="@Umbraco.Field("metaDescription")">
 
-    <title>@Model.Content.Name - @Umbraco.Field("pageTitle")</title>
-    <meta name="description" content="Codegarden Web Application">
+    @if (Model.Content.HasValue("websiteIcon"))
+    {
+        <link rel="icon" href="@Url.GetCropUrl(Model.Content, propertyAlias: "websiteIcon", height: 100, width: 100)" />
+    }
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="@Url.Content("~/vendor/bootstrap/css/bootstrap.min.css")" />
@@ -40,7 +42,9 @@
         </div>
 
         <footer>
-            @Umbraco.Field("footerText") @DateTime.Now.Year
+            <p class="text-center">
+                @Umbraco.Field("websiteName", recursive: true) - @Umbraco.Field("companyName", recursive: true) - @DateTime.Now.Year @Umbraco.Field("footerText")
+            </p>
         </footer>
 
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
