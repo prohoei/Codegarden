@@ -1,10 +1,10 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 <a class="navbar-brand svg-container" href="/">
-    <span class="svg-container d-block d-lg-none">
-        
-    </span>
-    <span class="svg-container d-none d-lg-block">
-        
+    <span class="d-block">
+        @if (Model.Content.HasValue("logo"))
+        {
+            <img class="logo" src="@Url.GetCropUrl(Model.Content, propertyAlias: "logo")" width="180"/>
+        }
     </span>
 </a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

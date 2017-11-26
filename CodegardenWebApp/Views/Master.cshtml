@@ -14,7 +14,7 @@
 
     @if (Model.Content.HasValue("websiteIcon"))
     {
-        <link rel="icon" href="@Url.GetCropUrl(Model.Content, propertyAlias: "websiteIcon", height: 100, width: 100)" />
+        <link rel="icon" href="@Url.GetCropUrl(Model.Content,  propertyAlias: "websiteIcon", height: 100, width: 100)" />
     }
 
     <!-- Bootstrap core CSS -->
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="@Url.Content("~/vendor/devicons/css/devicons.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/vendor/simple-line-icons/css/simple-line-icons.css")" />
     <!-- Custom theme -->
-    <link rel="stylesheet" href="@Url.Content("~/css/resume.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/theme.css")" />
 
 </head>
 
@@ -47,13 +47,10 @@
             </p>
         </footer>
 
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
-
+        <script src="@Url.Content("~/vendor/jquery/jquery.min.js")"></script>
         <script src="@Url.Content("~/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
         <script src="@Url.Content("~/vendor/jquery-easing/jquery.easing.min.js")"></script>
-        <script src="@Url.Content("~/scripts/resume.js")"></script>
+        <script src="@Url.Content("~/scripts/custom.js")"></script>
 
 </body>
 
