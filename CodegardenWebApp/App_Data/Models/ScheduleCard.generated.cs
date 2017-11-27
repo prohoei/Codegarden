@@ -22,7 +22,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Schedule card</summary>
 	[PublishedContentModel("scheduleCard")]
-	public partial class ScheduleCard : PublishedContentModel
+	public partial class ScheduleCard : PublishedContentModel, ISEO
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "scheduleCard";
@@ -46,6 +46,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Card description: Description of your card
+		///</summary>
+		[ImplementPropertyType("cardDescription")]
+		public IHtmlString CardDescription
+		{
+			get { return this.GetPropertyValue<IHtmlString>("cardDescription"); }
+		}
+
+		///<summary>
 		/// Card end
 		///</summary>
 		[ImplementPropertyType("cardEnd")]
@@ -64,15 +73,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Card title: Enter the card title
-		///</summary>
-		[ImplementPropertyType("cardTitle")]
-		public string CardTitle
-		{
-			get { return this.GetPropertyValue<string>("cardTitle"); }
-		}
-
-		///<summary>
 		/// Select room
 		///</summary>
 		[ImplementPropertyType("selectRoom")]
@@ -88,6 +88,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Speaker
 		{
 			get { return this.GetPropertyValue<string>("speaker"); }
+		}
+
+		///<summary>
+		/// Meta description
+		///</summary>
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaDescription(this); }
+		}
+
+		///<summary>
+		/// Meta title
+		///</summary>
+		[ImplementPropertyType("metaTitle")]
+		public string MetaTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaTitle(this); }
 		}
 	}
 }

@@ -119,6 +119,37 @@ a {
     height: 50px;
 }
 
+/* For SVG logo */
+.st0 {
+    fill: #fff;
+}
+
+@media (max-width: 992px) {
+    .svg-container svg {
+        width: 30%;
+        height: 80px;
+        margin-top: -22px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .svg-container svg {
+        width: auto;
+        height: 70px;
+        margin-top: -20px;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .svg-container {
+        display: block;
+        width: 80%;
+        margin: auto;
+    }
+}
+
 /* Override Bootstrap style */
 .navbar-toggler{
   border: 0;
@@ -134,10 +165,15 @@ a {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+/* Frontpage */
+.list-social-icons {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*************
 Timetable style
 *************/
-
 /* ==========================================================================
  * Default settings
  * ========================================================================== */

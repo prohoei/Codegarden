@@ -11,11 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@Umbraco.Field("websiteName", recursive: true) - @Umbraco.Field("metaTitle")</title>
     <meta name="description" content="@Umbraco.Field("metaDescription")">
-
-    @if (Model.Content.HasValue("websiteIcon"))
-    {
-        <link rel="icon" href="@Url.GetCropUrl(Model.Content,  propertyAlias: "websiteIcon", height: 100, width: 100)" />
-    }
+    <link rel="icon" href="@Url.Content("~/images/websiteIcon.png")" />
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="@Url.Content("~/vendor/bootstrap/css/bootstrap.min.css")" />

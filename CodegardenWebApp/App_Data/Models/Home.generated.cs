@@ -55,12 +55,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Facebook link
+		/// Facebook link: Link to Facebook account (Optional)
 		///</summary>
 		[ImplementPropertyType("facebookLink")]
-		public Umbraco.Web.Models.RelatedLinks FacebookLink
+		public string FacebookLink
 		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.RelatedLinks>("facebookLink"); }
+			get { return this.GetPropertyValue<string>("facebookLink"); }
 		}
 
 		///<summary>
@@ -73,39 +73,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Linkedin link
+		/// Linkedin link: Link to Linkedin account (Optional)
 		///</summary>
 		[ImplementPropertyType("linkedinLink")]
-		public Umbraco.Web.Models.RelatedLinks LinkedinLink
+		public string LinkedinLink
 		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.RelatedLinks>("linkedinLink"); }
+			get { return this.GetPropertyValue<string>("linkedinLink"); }
 		}
 
 		///<summary>
-		/// Logo
-		///</summary>
-		[ImplementPropertyType("logo")]
-		public Umbraco.Web.Models.ImageCropDataSet Logo
-		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("logo"); }
-		}
-
-		///<summary>
-		/// Twitter link
+		/// Twitter link: Link to Twitter account (Optional)
 		///</summary>
 		[ImplementPropertyType("twitterLink")]
-		public Umbraco.Web.Models.RelatedLinks TwitterLink
+		public string TwitterLink
 		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.RelatedLinks>("twitterLink"); }
-		}
-
-		///<summary>
-		/// Website icon
-		///</summary>
-		[ImplementPropertyType("websiteIcon")]
-		public Umbraco.Web.Models.ImageCropDataSet WebsiteIcon
-		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("websiteIcon"); }
+			get { return this.GetPropertyValue<string>("twitterLink"); }
 		}
 
 		///<summary>

@@ -31,21 +31,23 @@
             var Schedule = item.Id;
 
             //Query all <ScheduleCard> in this table
-            var scheduleCards = Model.Content.Site().AncestorOrSelf().Children<ScheduleCard>();
+            var scheduleCards = Model.Content.Descendants<ScheduleTable>()
+                .Where(x => x.Id == Schedule)
+                .DescendantsOrSelf<ScheduleCard>();
 
             //Foreach Card in Table
             foreach (var card in scheduleCards)
             {
                 <script type="text/javascript">
                     //Add cards to room
-                    timetable.addEvent('@card.CardTitle', '@card.SelectRoom', @card.CardStart.ToString("yyyy,m,dd,HH,mm"), @card.CardEnd.ToString("yyyy,m,dd,HH,mm"), { url: '#' });
+                    timetable.addEvent('@card.Speaker', '@card.SelectRoom', new Date(@card.CardStart.ToString("yyyy, MM, dd, HH, mm")), new Date(@card.CardEnd.ToString("yyyy, MM, dd, HH, mm")), { url: '@card.Url' });
                 </script>
             }
 
             <script type="text/javascript">
                 //Initialize timetable
                 var renderer = new Timetable.Renderer(timetable);
-            renderer.draw('.@item.ScheduleId'); // css selector for Table
+                renderer.draw('.@item.ScheduleId'); // any css selector
             </script>
         }
     }

@@ -314,12 +314,12 @@
     <Content Include="Views\Speakers.cshtml" />
     <Content Include="Views\Workshop.cshtml" />
     <Content Include="Views\AwardsItem.cshtml" />
-    <Content Include="Views\ScheduleItem.cshtml" />
     <Content Include="Views\Speaker.cshtml" />
     <Content Include="Views\Workshops.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\MacroPartials\ScheduleTable.cshtml" />
+    <Content Include="Views\ScheduleCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

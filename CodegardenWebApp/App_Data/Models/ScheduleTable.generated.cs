@@ -49,9 +49,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Schedule end: Enter ending time between 0-23
 		///</summary>
 		[ImplementPropertyType("scheduleEnd")]
-		public int ScheduleEnd
+		public string ScheduleEnd
 		{
-			get { return this.GetPropertyValue<int>("scheduleEnd"); }
+			get { return this.GetPropertyValue<string>("scheduleEnd"); }
 		}
 
 		///<summary>
@@ -76,9 +76,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Schedule start: Enter starting time between 0-23
 		///</summary>
 		[ImplementPropertyType("scheduleStart")]
-		public decimal ScheduleStart
+		public string ScheduleStart
 		{
-			get { return this.GetPropertyValue<decimal>("scheduleStart"); }
+			get { return this.GetPropertyValue<string>("scheduleStart"); }
 		}
 
 		///<summary>
