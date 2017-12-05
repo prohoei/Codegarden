@@ -393,3 +393,122 @@ Timetable style
         .timetable .time-entry:hover {
             background-color: #e74030;
         }
+
+/* This is for the Awards page */
+
+#box {
+    background-color: #413659;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+#box h2 {
+    text-shadow: 1px 1px 1px #000;
+    color: #fff;
+}
+
+#box p {
+    text-shadow: 1px 1px 1px #000;
+    color: #fff;
+}
+
+#boxImg {
+    background-color: #fff;
+    border-radius: 20px;
+    margin-bottom: 2%;
+}
+
+#awardsHeadline {
+    text-shadow: 1px 1px 1px #000;
+    background-color: lightgray;
+    color: #fff;
+    text-align: center;
+}
+
+#bgImg {
+    position: absolute;
+    width: 200px;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+/* This is for the frontpage */
+
+#frontpageCountdown {
+    background-color: lightgray;
+    height: 10%;
+    padding-top: 1%;
+    max-width: 33%;
+}
+
+#frontpageSpeakers {
+    background-color: lightgray;
+    height: 10%;
+    padding-top: 1%;
+    max-width: 33%;
+}
+
+#frontpageWorkshops {
+    background-color: lightgray;
+    height: 10%;
+    padding-top: 1%;
+    max-width: 33%;
+}
+
+#bannerImage {
+    opacity: 1;    
+}
+
+#cgLogo {
+    position: absolute;
+    justify-content: center;
+}
+
+#frontpageLeft {
+    position: relative;    
+}
+
+#frontpageInfo {
+    text-align: left;
+    padding-top: 2%;
+    font-size: 18px;
+}
+
+#frontpageRight {
+    background-color: #413659;
+    position: relative;
+    max-width: 48%;
+}
+
+#frontpageRightH1 {
+    color: #fff;
+    font-size: 32px;    
+}
+
+#frontpageRight li {
+    color: #fff;
+}
+
+#frontpageBoss {
+    color: #975A59;
+    padding-left: 5%;
+    text-decoration: underline;
+}
+
+/* This is for the Info page */
+#infoButtons {
+    text-align: center;
+    padding: 2%;
+}
+
+#restaurantBtn {
+    margin-right: 3%;
+}
+
+#barsBtn {
+    
+}
+
+#dokBtn {
+    margin-left: 3%;
+}

@@ -12,14 +12,15 @@
 <section class="resume-section p-3 p-lg-5 d-flex d-column" id="home">
 
     <div class="row">
-        <div class="col-md-12">
+        <div id="bannerImage" class="col-md-12">
+            <img id="cgLogo" src="~/images/CodegardenLogo.png" />
             @if (Model.Content.HasValue("bannerImage"))
             {
-                <img src="@Url.GetCropUrl(Model.Content, propertyAlias: "bannerImage", height: 300, width: 1000)" />
+                <img src="@Url.GetCropUrl(Model.Content, propertyAlias: "bannerImage", height: 530, width: 1560)" />                   
             }
         </div>
 
-        <div class="col-md-4">
+        <div id="frontpageCountdown" class="col-md-4">
             <p>Codegarden18 starts in:</p>
             @{ 
                 var dateString = umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("countdown").ToString(), "yyyy/MM/dd");
@@ -29,26 +30,49 @@
             </script>
             <p id="countdown"></p>
         </div>
-        <div class="col-md-4">
+        <div id="frontpageSpeakers" class="col-md-4">
             <p>Speakers</p>
             <p><strong>@speakerCount.Count()</strong></p>
         </div>
-        <div class="col-md-4">
+        <div id="frontpageWorkshops" class="col-md-4">
             <p>Workshops</p>
             <p><strong>@workshopCount.Count()</strong></p>
         </div>
+        <div class="row">
+            <section id="frontpageLeft" class="col-md-6">
+                <p id="frontpageInfo">
+                    <strong> 23rd - 25th of May, 2018 </strong>
+                    <br />
+                    <br />
+                    Join us for our annual gathering - the biggest gathering - of the
+                    global Umbraco community in Odense, Denmark. At this year’s
+                    Codegarden we will spoil you with a plethora of high-quality
+                    sessions from community experts, the Core team and acclaimed
+                    keynote speakers, announcements from Umbraco HQ, in-depth
+                    workshops, an exclusive masterclass and the opportunity to
+                    influence the future of Umbraco. We hope to see you there.
+                </p>
+                <br />
+                <p id="frontpageTicket"> <strong>Ticket price: €700 ex. DK VAT</strong></p>
 
-        <div class="my-auto">
+                <a id="frontpageBtn" class="btn btn-success btn-lg" href="https://shop.umbraco.com/shop/cart/?p=7133&n=963">Buy your Codegarden 18 ticket now</a>
+            </section>
 
-            <h1 class="mb-0">
-                About
-                <span class="text-primary">Codegarden</span>
-            </h1>
-            <div class="subheading mb-5">
-                Codegarden ·
-                <a href="mailto:name@email.com">name@email.com</a>
-            </div>
-            <p class="mb-5">Test frontpage.</p>
+            <section id="frontpageRight" class="col-md-6">
+                <strong class="subheading" id="frontpageRightH1"> What you get</strong>
+                <br />
+                <br />
+                <ul>
+                    <li>3 full days of Umbraco</li>
+                    <li>A ton of amazing sessions</li>
+                    <li>Great workshops</li>
+                    <li>Lunch and dinner are included in the ticket</li>
+                    <li>All the coffee, water and snacks you can handle</li>
+                    <li>Social events (meaning we ain’t done when <br /> the sessions and workshops are!)</li>                    
+                </ul>
+                <br />
+                <a id="frontpageBoss" href="https://codegarden18.com/media/1002/convince-your-boss-codegarden18.pdf">Convince your boss!</a>
+            </section>
         </div>
 
     </div>
