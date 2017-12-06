@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@Umbraco.Field("websiteName", recursive: true) - @Umbraco.Field("metaTitle")</title>
+    <meta name="description" content="@Umbraco.Field("metaDescription")">
+    <link rel="icon" href="@Url.Content("~/images/websiteIcon.png")" />
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/vendor/bootstrap/css/bootstrap.min.css")" />
+    
+    <!-- Custom fonts for this theme -->
+    <link rel="stylesheet" href="@Url.Content("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900")" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="@Url.Content("~/vendor/font-awesome/css/font-awesome.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/vendor/devicons/css/devicons.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/vendor/simple-line-icons/css/simple-line-icons.css")" />
+    <!-- Custom theme -->
+    <link rel="stylesheet" href="@Url.Content("~/css/theme.css")" />
+
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            @Html.Partial("Navigation/MainNavigation")
+        </nav>
+
+        <div class="container-fluid p-0">
+            @RenderBody()
+        </div>
+
+        <footer>
+            <p class="text-center">
+                @Umbraco.Field("websiteName", recursive: true) - @Umbraco.Field("companyName", recursive: true) - @DateTime.Now.Year @Umbraco.Field("footerText")
+            </p>
+        </footer>
+
+        <script src="@Url.Content("~/vendor/jquery/jquery.min.js")"></script>
+        <script src="@Url.Content("~/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
+        <script src="@Url.Content("~/vendor/jquery-easing/jquery.easing.min.js")"></script>
+        <script src="@Url.Content("~/scripts/custom.js")"></script>
+
+</body>
+
+</html>

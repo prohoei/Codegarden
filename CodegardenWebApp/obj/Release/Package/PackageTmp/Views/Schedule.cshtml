@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Schedule>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="schedule">
+    <div class="my-auto">
+        <h2 class="mb-5">@Umbraco.Field("headline")</h2>
+
+            @Umbraco.Field("bodyText")
+
+        </div>
+    </div>
+</section>

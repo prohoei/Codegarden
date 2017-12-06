@@ -1,0 +1,54 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+
+<script src="@Url.Content("~/scripts/timetable.js")"></script>
+
+@{
+    //Query all Document Type <ScheduleTable>
+    var scheduleTables = Model.Content.Site().Descendants<ScheduleTable>();
+
+    if (scheduleTables.Count() > 0)
+    {
+        foreach (var item in scheduleTables)
+        {
+            <h3>@item.Name</h3>
+            <div class="timetable @item.ScheduleId"></div>
+
+            <script type="text/javascript">
+                //Create timetable
+                var timetable = new Timetable();
+                //Add time start and end
+                //Param start = (0-23)
+                //Param end = (0-23)
+                timetable.setScope(@item.ScheduleStart,@item.ScheduleEnd)
+                //Add elements to timetable
+                timetable.addLocations(['Entrance Room', 'Main Room','The Starship', 'Back Room']);
+            </script>
+
+            //::Card item:://
+
+            //Schedule table to compare with card days
+            var Schedule = item.Id;
+
+            //Query all <ScheduleCard> in this table
+            var scheduleCards = Model.Content.Descendants<ScheduleTable>()
+                .Where(x => x.Id == Schedule)
+                .DescendantsOrSelf<ScheduleCard>();
+
+            //Foreach Card in Table
+            foreach (var card in scheduleCards)
+            {
+                <script type="text/javascript">
+                    //Add cards to room
+                    timetable.addEvent('@card.Speaker', '@card.SelectRoom', new Date(@card.CardStart.ToString("yyyy, MM, dd, HH, mm")), new Date(@card.CardEnd.ToString("yyyy, MM, dd, HH, mm")), { url: '@card.Url' });
+                </script>
+            }
+
+            <script type="text/javascript">
+                //Initialize timetable
+                var renderer = new Timetable.Renderer(timetable);
+                renderer.draw('.@item.ScheduleId'); // any css selector
+            </script>
+        }
+    }
+}

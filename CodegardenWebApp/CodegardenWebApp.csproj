@@ -322,6 +322,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\MacroPartials\ScheduleTable.cshtml" />
     <Content Include="Views\ScheduleCard.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
