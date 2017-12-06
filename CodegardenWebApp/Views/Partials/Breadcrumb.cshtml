@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+<ol class="breadcrumb">
+    @foreach (var page in CurrentPage.Ancestors().OrderBy("Level"))
+    {
+        <li class="breadcrumb-item">@page.Name</li>
+    }
+    <li class="breadcrumb-item">@CurrentPage.Name</li>
+</ol>

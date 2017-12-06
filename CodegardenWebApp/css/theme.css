@@ -172,6 +172,50 @@ a {
 }
 
 /*************
+Speakers
+*************/
+
+.speaker-content {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 20px !important;
+}
+
+#speakers {
+    background-color: #eee;
+    color: #000;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+}
+
+.schedule-btn {
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.image-circle {
+    border-radius: 150px;   
+}
+/*************
+Speaker item
+*************/
+.breadcrumb {
+    margin-bottom: 0;
+}
+
+.speaker-body{
+    background-color: #fff;
+    padding: 30px 25px;
+}
+
+/*************
+Workshops
+*************/
+/*************
+Workshop item
+*************/
+/*************
 Timetable style
 *************/
 /* ==========================================================================
