@@ -1,5 +1,28 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.AwardsItem>
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Award>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    var allAwards = Model.Content.Children<Awards>();
 }
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@Model.Content.Headline</h1>
+            @Model.Content.BodyText
+            <hr />
+
+            <div class="row">
+                @foreach (var award in allAwards)
+                {
+                    <div class="col-md-6">
+                        <h2>@award.Headline</h2>
+                        <em>@award.CreateDate.ToShortDateString()</em><br />
+
+                        <a href="@award.Url">Read more</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
