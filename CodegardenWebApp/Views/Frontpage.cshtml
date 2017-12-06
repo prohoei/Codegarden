@@ -4,63 +4,56 @@
     Layout = "Master.cshtml";
 
     //Query that selects all <Speakers> items
-    var speakerCount = Model.Content.Children<Speakers>();
+    var speakerCount = Model.Content.Site().FirstChild("speakers").Children("speaker").Count();
     //Query that selects all <Workshops> items
-    var workshopCount = Model.Content.Siblings<Workshops>();
+    var workshopCount = Model.Content.Site().FirstChild("workshops").Children("workshop").Count();
+
 }
 
-<section class="resume-section p-3 p-lg-5 d-flex d-column" id="home">
+<section class="resume-section p-3 d-flex d-column" id="home">
 
     <div class="row">
-        <div id="bannerImage" class="col-md-12">
-            <img id="cgLogo" src="~/images/CodegardenLogo.png" />
+
+        <div class="col-md-12 p-0">
             @if (Model.Content.HasValue("bannerImage"))
             {
-                <img src="@Url.GetCropUrl(Model.Content, propertyAlias: "bannerImage", height: 530, width: 1560)" />                   
+                <div id="bannerImage" style="background: url(@Url.GetCropUrl(Model.Content, propertyAlias: "bannerImage")) center center no-repeat;">
+                    <div class="overlay"></div>
+                    <img id="cgLogo" src="~/images/CodegardenLogo.png" />
+                </div>                   
             }
         </div>
 
-        <div id="frontpageCountdown" class="col-md-4">
-            <p>Codegarden18 starts in:</p>
-            @{ 
-                var dateString = umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("countdown").ToString(), "yyyy/MM/dd");
-            }
-            <script type="text/javascript">
-                var countdownDate = "@dateString";
-            </script>
-            <p id="countdown"></p>
-        </div>
-        <div id="frontpageSpeakers" class="col-md-4">
-            <p>Speakers</p>
-            <p><strong>@speakerCount.Count()</strong></p>
-        </div>
-        <div id="frontpageWorkshops" class="col-md-4">
-            <p>Workshops</p>
-            <p><strong>@workshopCount.Count()</strong></p>
-        </div>
-        <div class="row">
+            <div class="col-md-4 countdown-content">
+                <p>Codegarden18 starts in:</p>
+                @{ 
+                    var dateString = umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("countdown").ToString(), "yyyy/MM/dd");
+                }
+                <script type="text/javascript">
+                    var countdownDate = "@dateString";
+                </script>
+                <p id="countdown"></p>
+            </div>
+            <div class="col-md-4 countdown-content">
+                <p>Speakers</p>
+                <p><strong>@speakerCount</strong></p>
+            </div>
+            <div class="col-md-4 countdown-content">
+                <p>Workshops</p>
+                <p><strong>@workshopCount</strong></p>
+            </div>
+ 
+
             <section id="frontpageLeft" class="col-md-6">
-                <p id="frontpageInfo">
-                    <strong> 23rd - 25th of May, 2018 </strong>
-                    <br />
-                    <br />
-                    Join us for our annual gathering - the biggest gathering - of the
-                    global Umbraco community in Odense, Denmark. At this year’s
-                    Codegarden we will spoil you with a plethora of high-quality
-                    sessions from community experts, the Core team and acclaimed
-                    keynote speakers, announcements from Umbraco HQ, in-depth
-                    workshops, an exclusive masterclass and the opportunity to
-                    influence the future of Umbraco. We hope to see you there.
-                </p>
+                @Umbraco.Field("bodyText")
                 <br />
                 <p id="frontpageTicket"> <strong>Ticket price: €700 ex. DK VAT</strong></p>
 
-                <a id="frontpageBtn" class="btn btn-success btn-lg" href="https://shop.umbraco.com/shop/cart/?p=7133&n=963">Buy your Codegarden 18 ticket now</a>
+                <a id="frontpageBtn" class="btn btn-success btn-lg" href="https://shop.umbraco.com/shop/cart/?p=7133&n=963">Buy your ticket now</a>
             </section>
 
             <section id="frontpageRight" class="col-md-6">
-                <strong class="subheading" id="frontpageRightH1"> What you get</strong>
-                <br />
+                <h3> What you get</h3>
                 <br />
                 <ul>
                     <li>3 full days of Umbraco</li>
@@ -73,7 +66,7 @@
                 <br />
                 <a id="frontpageBoss" href="https://codegarden18.com/media/1002/convince-your-boss-codegarden18.pdf">Convince your boss!</a>
             </section>
-        </div>
 
     </div>
+
 </section>

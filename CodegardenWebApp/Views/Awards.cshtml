@@ -4,25 +4,26 @@
 	Layout = "Master.cshtml";
 }
 
-@*<div id="bgImg" class="col-md-12">
-    <img id="awardsBG" src="~/images/awardsImage.jpg" />
-</div>*@
-
-<section class="resume-section p-3 p-lg-5 d-flex flex" id="awards">
+<section class="resume-section p-3 d-flex" id="awards">
     <div class="my-auto">
-        <h2 id="awardsHeadline" class="mb-5">Winners of Umbraco Awards 2017</h2>
-        <div class="col-md-12 row">
+
+        <div id="bgImg" class="col-md-12">
+            <div id="awardsBG" style="background: url(../images/awardsImage.jpg) center center no-repeat;"></div>
+            <h2 id="awardsHeadline" class="mb-5 overlay">@Umbraco.Field("headline")</h2>
+        </div>
+
+        <div class="col-md-12 row" id="awardsDiv">
 
             @{
                 var Awards = Model.Content.Children<Award>();
 
-                <div id="awardDiv" class="row">
+                <div class="row">
                     @foreach (var award in Awards)
                     {
-                        <div id="box" class="container col-md-6">
+                        <div class="col-md-6 box">
                             <h2>@award.Headline</h2>
                             <p>@award.BodyText</p>
-                            <img id="boxImg" src="@award.AwardsImage.Url" class="img-fluid" />
+                            <img id="boxImg" src="@award.AwardsImage.Url" class="img-fluid"/>
                         </div>
                     }
                 </div>

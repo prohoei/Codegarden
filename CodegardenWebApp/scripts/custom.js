@@ -35,4 +35,17 @@ $(document).ready(function () {
 
     }
 
+    /*
+        Google map custom jQuery
+    */
+    $("#dokBtn").click(function () {
+        $("#map").html("<iframe height='560' width='100%' frameborder='0' style= 'border:0' src='https://www.google.com/maps/embed/v1/search?q=DOK5000&key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=Odense+DK' allowfullscreen></iframe>");
+    });
+    $("#restaurantBtn").click(function () {
+        $("#map").html("<iframe height='560' width='100%' frameborder='0' style= 'border:0' src='https://www.google.com/maps/embed/v1/search?q=restaurants&key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=Odense+DK' allowfullscreen></iframe>");
+    });
+    $("#barsBtn").click(function () {
+        $("#map").html("<iframe height='560' width='100%' frameborder='0' style= 'border:0' src='https://www.google.com/maps/embed/v1/search?q=bars+nær+Odense+C,+Odense,+Danmark&key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=Odense+DK' allowfullscreen></iframe>");
+    });
+
 });
