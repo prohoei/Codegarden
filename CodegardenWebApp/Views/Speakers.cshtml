@@ -2,11 +2,38 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
 	Layout = "Master.cshtml";
+	var speakers = Model.Content.Children<Speaker>();
 }
 
-<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="speakers">
+<section class="resume-section p-3 d-flex flex-column align-center" id="speakers">
     <div class="my-auto">
-        <h2 class="mb-5">Speakers</h2>
-        <p>Speakers page example</p>
-    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-8 offset-md-2">
+                    <h3>@Umbraco.Field("headline")</h3>
+                    @Umbraco.Field("bodyText")
+                    <a href="/schedule" class="btn btn-success schedule-btn">Full schedule</a>
+                    <p class="abstract">
+                        <strong class="addispeakers"><i>New speakers are added every week as we approach Codegarden 2018</i></strong>
+                    </p>
+                </div>
+            </div>
+
+            @foreach (var item in speakers)
+            {
+                <div class="col-md-4 speaker-content">
+                    <a href="@item.Url">
+                        <img src="@item.SpeakerImage.Url?width=150" class="image-circle" />
+                        <h3>@item.Headline</h3>
+                    </a>
+                    @item.SpeakerDescription
+                    @if (item.PersonalLink != string.Empty)
+                    {
+                        <p><a href="@item.PersonalLink" target="_blank">@item.PersonalLink</a></p>
+                    }
+                </div>
+            }
+        </div>
+
+        </div>
 </section>
