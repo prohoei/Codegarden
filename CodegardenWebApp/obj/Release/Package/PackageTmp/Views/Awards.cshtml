@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Awards>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
+    <div class="my-auto">
+        <h2 class="mb-5">Awards</h2>
+        <p>Awards page example</p>
+        <div class="col-md-4">
+            @{
+                var latest = Model.Content.Siblings<Awards>()
+                .Where(x => x.Id != Model.Content.Id)
+                .OrderByDescending(x => x.CreateDate)
+                .Take(3);
+
+                <ul>
+                    @foreach (var item in latest)
+                    {
+                        <li><a href="@item.Url">@item.Headline</a></li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</section>

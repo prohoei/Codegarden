@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+
+    //Query that selects all <Speakers> items
+    var speakerCount = Model.Content.Children<Speakers>();
+    //Query that selects all <Workshops> items
+    var workshopCount = Model.Content.Siblings<Workshops>();
+}
+
+<section class="resume-section p-3 p-lg-5 d-flex d-column" id="home">
+
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.Content.HasValue("bannerImage"))
+            {
+                <img src="@Url.GetCropUrl(Model.Content, propertyAlias: "bannerImage", height: 300, width: 1000)" />
+            }
+        </div>
+
+        <div class="col-md-4">
+            <p>Codegarden18 starts in:</p>
+            @{ 
+                var dateString = umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("countdown").ToString(), "yyyy/MM/dd");
+            }
+            <script type="text/javascript">
+                var countdownDate = "@dateString";
+            </script>
+            <p id="countdown"></p>
+        </div>
+        <div class="col-md-4">
+            <p>Speakers</p>
+            <p><strong>@speakerCount.Count()</strong></p>
+        </div>
+        <div class="col-md-4">
+            <p>Workshops</p>
+            <p><strong>@workshopCount.Count()</strong></p>
+        </div>
+
+        <div class="my-auto">
+
+            <h1 class="mb-0">
+                About
+                <span class="text-primary">Codegarden</span>
+            </h1>
+            <div class="subheading mb-5">
+                Codegarden ·
+                <a href="mailto:name@email.com">name@email.com</a>
+            </div>
+            <p class="mb-5">Test frontpage.</p>
+        </div>
+
+    </div>
+</section>

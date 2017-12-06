@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ScheduleCard>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<ol class="breadcrumb">
+    @foreach (var page in CurrentPage.Ancestors().OrderBy("Level"))
+    {
+        <li class="breadcrumb-item">@page.Name</li>
+    }
+    <li class="breadcrumb-item">@CurrentPage.Name</li>
+</ol>
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="schedule">
+    <div class="my-auto">
+        <h2>@Umbraco.Field("speaker")</h2>
+
+            <p>From <i>@umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("cardStart").ToString(), "HH tt") </i>
+                to <i>@umbraco.library.FormatDateTime(Model.Content.GetPropertyValue("cardEnd").ToString(), "HH tt")</i></p>
+            <br />
+
+            @Umbraco.Field("cardDescription")
+
+        </div>
+    </div>
+</section>
