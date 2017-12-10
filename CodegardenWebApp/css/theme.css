@@ -165,431 +165,218 @@ a {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-/*************
-Speakers
-*************/
-
-.speaker-content {
-    background-color: #fff;
-    border: 1px solid #eee;
-    padding: 20px !important;
-}
-
-#speakers {
-    background-color: #eee;
-    color: #000;
-    text-align: center;
-    padding: 0;
-    width: 100%;
-}
-
-.schedule-btn {
-    margin-bottom: 15px;
-    border-radius: 2px;
-}
-
-.image-circle {
-    border-radius: 150px;   
-}
-/*************
-Speaker item
-*************/
-.breadcrumb {
-    margin-bottom: 0;
-}
-
-.speaker-body{
-    background-color: #fff;
-    padding: 30px 25px;
-}
-
-/*************
-Workshops
-*************/
-/*************
-Workshop item
-*************/
-/*************
-Timetable style
-*************/
-/* ==========================================================================
- * Default settings
- * ========================================================================== */
-/* ==========================================================================
- * Mixins
- * ========================================================================== */
-/* ==========================================================================
- * Timetable
- * ========================================================================== */
-.timetable {
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-    .timetable::after {
-        clear: both;
-        content: "";
-        display: table;
-    }
-
-    .timetable *, .timetable *:before, .timetable *:after {
-        box-sizing: inherit;
-    }
-
-    .timetable ul, .timetable li {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    .timetable aside, .timetable section {
-        float: left;
-    }
-
-    .timetable aside {
-        max-width: 30%;
-        padding: 0 !important;
-        margin-top: 50px;
-        border-right: 5px solid transparent;
-    }
-
-        .timetable aside li {
-            padding: 0 15px;
-            background-color: #EFEFEF;
-            line-height: 50px;
-        }
-
-            .timetable aside li:not(:last-of-type) {
-                border-bottom: 1px solid white;
-            }
-
-        .timetable aside .row-heading {
-            display: inline-block;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            word-wrap: normal;
-        }
-
-    .timetable ul {
-        list-style-type: none;
-        margin: 0;
-    }
-
-    .timetable aside li, .timetable time li {
-        height: 50px;
-    }
-
-    .timetable section {
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        padding: 0 !important;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-    }
-
-        .timetable section time {
-            white-space: nowrap;
-            display: inline-block;
-        }
-
-        .timetable section header {
-            height: 50px;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            font-size: 0;
-        }
-
-            .timetable section header::after {
-                clear: both;
-                content: "";
-                display: table;
-            }
-
-            .timetable section header li {
-                display: inline-block;
-                font-size: 1rem;
-                overflow: visible;
-                width: 0;
-                line-height: 50px;
-                display: inline-block;
-                position: relative;
-            }
-
-                .timetable section header li:not(:last-of-type) {
-                    width: 120px;
-                }
-
-                .timetable section header li .time-label {
-                    display: block;
-                    position: absolute;
-                    left: 0;
-                }
-
-                .timetable section header li:not(:first-of-type) .time-label {
-                    -webkit-transform: translateX(-50%);
-                    transform: translateX(-50%);
-                }
-
-                .timetable section header li:last-of-type .time-label {
-                    -webkit-transform: translateX(-100%);
-                    transform: translateX(-100%);
-                }
-
-    .timetable ul.room-timeline {
-        border-left: none;
-        position: relative;
-        overflow: hidden;
-    }
-
-        .timetable ul.room-timeline li {
-            position: relative;
-            background-color: #F4F4F4;
-        }
-
-            .timetable ul.room-timeline li:nth-of-type(odd) {
-                background-color: #FDFDFD;
-            }
-
-            .timetable ul.room-timeline li:first-of-type {
-                border-top: 1px solid #E5E5E5;
-            }
-
-            .timetable ul.room-timeline li:last-of-type {
-                border-bottom: 1px solid #E5E5E5;
-            }
-
-            .timetable ul.room-timeline li:not(:last-of-type) {
-                border-bottom: none;
-            }
-
-            .timetable ul.room-timeline li:first-child .time-entry {
-                height: 48px;
-            }
-
-            .timetable ul.room-timeline li:after, .timetable ul.room-timeline li:before {
-                content: "";
-                position: absolute;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                right: 0;
-                bottom: 0;
-            }
-
-            .timetable ul.room-timeline li:before {
-                background-image: -webkit-linear-gradient(left, #E5E5E5 1px, transparent 1px);
-                background-image: linear-gradient(to right, #E5E5E5 1px, transparent 1px);
-                background-size: 30px auto;
-            }
-
-            .timetable ul.room-timeline li:after {
-                background-image: -webkit-linear-gradient(left, #E5E5E5, #E5E5E5 1px, #F4F4F4 1px, #F4F4F4 2px, #E5E5E5 2px, #E5E5E5 3px, transparent 3px, transparent);
-                background-image: linear-gradient(to right, #E5E5E5, #E5E5E5 1px, #F4F4F4 1px, #F4F4F4 2px, #E5E5E5 2px, #E5E5E5 3px, transparent 3px, transparent);
-                background-size: 120px auto;
-                background-position: -2px 0;
-            }
-
-    .timetable .time-entry {
-        background-color: #EC6A5E;
-        -webkit-transition: 200ms background-color;
-        transition: 200ms background-color;
-        height: 49px;
-        display: block;
-        position: absolute;
-        z-index: 2;
-        padding: 0 10px;
-        white-space: normal;
-        overflow: hidden;
-        color: white;
-        border: 1px solid #e32c1b;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-    }
-
-        .timetable .time-entry small {
-            position: relative;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-            display: block;
-        }
-
-        .timetable .time-entry:hover {
-            background-color: #e74030;
-        }
-
-/* This is for the Awards page */
-
-.box {
-    background-color: #413659;
-    text-align: center;
-    padding: 40px 0;
-    color: #fff;
-}
-
-.box a{
-    color: #fff;
-    font-weight: bold;
-}
-
-.box a:hover{
-    color: #ccc;
-    text-decoration: none;
-}
-
-.box:nth-child(3n+1) {
-    background-color: #675e7a;
-}
-
-.box h2 {
-    color: #fff;
-}
-
-#boxImg {
-    background-color: #fff;
-    border-radius: 20px;
-    margin-bottom: 4%;
-    height: 100px;
-}
-
-#awardsHeadline {
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 0 !important;
-    margin-top: -82px;
-    z-index: 2;
-    font-size: 2.2em;
-}
-
-#awardsBG {
-    width: 100%;
-    height: 380px;
-    z-index: 1;
-}
-
-#bgImg {
-    padding: 0;
-}
-
-#awards {
-    padding: 0!important;
-    margin: 0!important;
-}
-
-#awardsDiv {
-    margin: 0;
-    padding: 0;
-}
-
-/* This is for the frontpage */
-#home{
-    padding-top: 0!important;
-}
-
+/* Frontpage */
 .list-social-icons {
     margin-left: auto;
     margin-right: auto;
 }
 
-.countdown-content {
-    background-color: #eee;
-    color: #000;
-    text-align: center;
-    padding: 20px 0;
+
+/* ==========================================================================
+ * Timetable
+ * ========================================================================== */
+.timetable {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+.timetable::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.timetable *, .timetable *:before, .timetable *:after {
+  box-sizing: inherit;
+}
+.timetable ul, .timetable li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.timetable aside, .timetable section {
+  float: left;
+}
+.timetable aside {
+  min-width: 150px;
+  padding: 0 !important;
+  margin-top: 35px;
+  border-right: 10px solid #FFFFFF;
+}
+.timetable aside li {
+  padding: 0 5px;
+  background-color: #413659;
+  line-height: 70px;
+  color: #ffffff;
+}
+.timetable aside li:not(:last-of-type) {
+  border-bottom: 1px solid white;
+}
+.timetable aside .row-heading {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.timetable ul {
+  list-style-type: none;
+  margin: 0;
+}
+.timetable aside li, .timetable time li {
+  height: 70px;
+}
+.timetable section {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0 !important;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.timetable section time {
+  white-space: nowrap;
+  display: inline-block;
+}
+.timetable section header {
+  height: 35px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  font-size: 0;
+}
+.timetable section header::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.timetable section header li {
+  display: inline-block;
+  font-size: 1rem;
+  overflow: visible;
+  width: 0;
+  line-height: 35px;
+  display: inline-block;
+  position: relative;
+}
+.timetable section header li:not(:last-of-type) {
+  width: 120px;
+}
+.timetable section header li .time-label {
+  display: block;
+  position: absolute;
+  left: 0;
+}
+.timetable section header li:not(:first-of-type) .time-label {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.timetable section header li:last-of-type .time-label {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.timetable ul.room-timeline {
+  border-left: none;
+  position: relative;
+  overflow: hidden;
+}
+.timetable ul.room-timeline li {
+  position: relative;
+  background-color: #ffffff;
+}
+.timetable ul.room-timeline li:nth-of-type(odd) {
+  background-color: #ffffff;
+}
+.timetable ul.room-timeline li:first-of-type {
+  border-top: 1px solid #E5E5E5;
+}
+.timetable ul.room-timeline li:last-of-type {
+  border-bottom: 1px solid #E5E5E5;
+}
+.timetable ul.room-timeline li:not(:last-of-type) {
+  border-bottom: none;
+}
+.timetable ul.room-timeline li:first-child .time-entry {
+  height: 68px;
+}
+.timetable ul.room-timeline li:after, .timetable ul.room-timeline li:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.timetable ul.room-timeline li:before {
+  background-image: -webkit-linear-gradient(left, #E5E5E5 1px, transparent 1px);
+  background-image: linear-gradient(to right, #E5E5E5 1px, transparent 1px);
+  background-size: 30px auto;
+}
+.timetable ul.room-timeline li:after {
+  background-image: -webkit-linear-gradient(left, #E5E5E5, #E5E5E5 1px, #ffffff 1px, #ffffff 1px, #E5E5E5 1px, #E5E5E5 3px, transparent 3px, transparent);
+  background-image: linear-gradient(to right, #E5E5E5, #E5E5E5 1px, #ffffff 1px, #ffffff 1px, #E5E5E5 1px, #E5E5E5 3px, transparent 3px, transparent);
+  background-size: 120px auto;
+  background-position: -2px 0;
+}
+.timetable .time-entry {
+  background-color: #495057;
+  -webkit-transition: 200ms background-color;
+  transition: 200ms background-color;
+  height: 69px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  padding: 0 10px;
+  white-space: normal;
+  overflow: hidden;
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  font-style: italic;
+  border: 1px solid #262a2d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.timetable .time-entry small {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 70px;
+  display: block;
+}
+.timetable .time-entry:hover {
+  background-color: #32373b;
 }
 
-#bannerImage {
-    height: 480px;
-    width: 100%;
+.cardCont {
+  text-align: left;
 }
 
-#cgLogo {
-    width: 100%;
-    max-width: 350px;
-    display: block;
-    margin: 0 auto;
-    margin-top: -300px;
+.cardTitle {
+  text-align: left;
+  font-style: normal;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
 }
 
-.overlay {
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-}
-
-#frontpageInfo {
-    text-align: left;
-    padding-top: 2%;
-    font-size: 1em;
-}
-
-#frontpageRight {
-    background-color: #413659;
-    color: #fff;
-    font-size: 1em;
-    padding: 45px;
-}
-
-#frontpageRight h3{
-    color: #fff;
-    padding-left: 30px;
-}
-
-#frontpageBoss {
-    color: #975A59;
-    padding-left: 5%;
-    text-decoration: underline;
-}
-
-#frontpageLeft {
-    padding: 45px;
-}
-
-#frontpageLeft .btn {
-    border-radius: 2px;
-}
-
-/* This is for the Info page */
-.info-header{
-    text-align: center;
-}
-
-.info-header .headline{
-    font-size: 2.2em;
-}
-
-#infoButtons {
-    text-align: center;
-    padding: 2% 0;
-}
-
-#infoButtons button{
-    margin: 0 20px;
-    width: 150px;
-}
-
-/* Google map style */
-#infoText {
-    max-width: 50%;
-    text-align: left;
-}
-
-#map {
-    text-align: center;
+.cardSpeaker {
+  text-align: left;
+  line-height: 1px;
+  color: #F4F4F4;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
 }

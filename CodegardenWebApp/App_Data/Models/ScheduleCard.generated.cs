@@ -73,6 +73,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// card Title: enter the speakers topic
+		///</summary>
+		[ImplementPropertyType("cardTopTitle")]
+		public string CardTopTitle
+		{
+			get { return this.GetPropertyValue<string>("cardTopTitle"); }
+		}
+
+		///<summary>
 		/// Select room
 		///</summary>
 		[ImplementPropertyType("selectRoom")]

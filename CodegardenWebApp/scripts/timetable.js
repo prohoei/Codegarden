@@ -75,7 +75,7 @@ Timetable.Renderer = function(tt) {
 
 			return this;
 		},
-		addEvent: function(name, location, start, end, options) {
+		addEvent: function(topic, name, location, start, end, options) {
 			if (!locationExistsIn(location, this.locations)) {
 				throw new Error('Unknown location');
 			}
@@ -86,6 +86,7 @@ Timetable.Renderer = function(tt) {
 			var optionsHasValidType = Object.prototype.toString.call(options) === '[object Object]';
 
 			this.events.push({
+                topic: topic,
 				name: name,
 				location: location,
 				startDate: start,
@@ -185,8 +186,11 @@ Timetable.Renderer = function(tt) {
 
 				var elementType = hasURL ? 'a' : 'span';
 				var aNode = node.appendChild(document.createElement(elementType));
-				var smallNode = aNode.appendChild(document.createElement('small'));
+				var topicNode = aNode.appendChild(document.createElement('p'));
+				var smallNode = aNode.appendChild(document.createElement('p'));
+				aNode.title = event.topic;
 				aNode.title = event.name;
+
 
 				if (hasURL) {
 					aNode.href = event.options.url;
@@ -200,7 +204,11 @@ Timetable.Renderer = function(tt) {
 				aNode.className = hasAdditionalClass ? 'time-entry ' + event.options.class : 'time-entry';
 				aNode.style.width = computeEventBlockWidth(event);
 				aNode.style.left = computeEventBlockOffset(event);
+				smallNode.className = 'cardSpeaker';
+				topicNode.className = 'cardTitle';
+				topicNode.textContent = event.topic;
 				smallNode.textContent = event.name;
+
 			}
 			function computeEventBlockWidth(event) {
 				var start = event.startDate;
@@ -229,5 +237,3 @@ Timetable.Renderer = function(tt) {
 	};
 
 })();
-
-                
