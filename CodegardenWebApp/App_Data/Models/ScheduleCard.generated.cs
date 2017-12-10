@@ -73,6 +73,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Card Title: Title to be previewed on the schedule card
+		///</summary>
+		[ImplementPropertyType("cardTopTitle")]
+		public string CardTopTitle
+		{
+			get { return this.GetPropertyValue<string>("cardTopTitle"); }
+		}
+
+		///<summary>
 		/// Select room
 		///</summary>
 		[ImplementPropertyType("selectRoom")]

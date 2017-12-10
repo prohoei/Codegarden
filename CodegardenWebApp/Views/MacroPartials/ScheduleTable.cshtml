@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
 @using Umbraco.Web
 
-<script src="@Url.Content("~/scripts/timetable.js")"></script>
+<script src="@Url.Content("~/scripts/timetable.min.js")"></script>
 
 @{
     //Query all Document Type <ScheduleTable>
@@ -14,6 +14,7 @@
             <h3>@item.Name</h3>
             <div class="timetable @item.ScheduleId"></div>
 
+
             <script type="text/javascript">
                 //Create timetable
                 var timetable = new Timetable();
@@ -24,7 +25,6 @@
                 //Add elements to timetable
                 timetable.addLocations(['Entrance Room', 'Main Room','The Starship', 'Back Room']);
             </script>
-
             //::Card item:://
 
             //Schedule table to compare with card days
@@ -40,7 +40,8 @@
             {
                 <script type="text/javascript">
                     //Add cards to room
-                    timetable.addEvent('@card.Speaker', '@card.SelectRoom', new Date(@card.CardStart.ToString("yyyy, MM, dd, HH, mm")), new Date(@card.CardEnd.ToString("yyyy, MM, dd, HH, mm")), { url: '@card.Url' });
+
+                    timetable.addEvent('@card.CardTopTitle', '@card.Speaker', '@card.SelectRoom', new Date(@card.CardStart.ToString("yyyy, MM, dd, HH, mm")), new Date(@card.CardEnd.ToString("yyyy, MM, dd, HH, mm")), { url: '@card.Url' });
                 </script>
             }
 
@@ -48,6 +49,64 @@
                 //Initialize timetable
                 var renderer = new Timetable.Renderer(timetable);
                 renderer.draw('.@item.ScheduleId'); // any css selector
+            </script>
+            <script src="@Url.Content("~/vendor/jquery/jquery.min.js")"></script>
+            <script type="text/javascript">
+
+
+            function rollTheTime() {
+
+            var d = new Date();// get date
+            var h = d.getHours();// get hours
+            var m = d.getMinutes();// get minutes
+
+            var scopeStart = @item.ScheduleStart ;// get start
+            var scopeEnd = @item.ScheduleEnd ;// get end
+
+            var minsPassed = h * 60 + m;// =minutes
+            var scopeDur = scopeEnd - scopeStart;// hours
+            var maxPass = scopeDur * 60;// max scope=mins
+            var maxRoll = maxPass * 2;// max distance
+            var mPass = minsPassed - (scopeStart * 60);//exact time passed in minutes
+            var xDist = mPass * 2;//120px=60min
+            var rollIt = xDist ;//how much to move on refresh
+
+            var maxActiveTime = scopeEnd - d.getHours();
+            var maxMins = maxActiveTime * 60 - d.getMinutes();
+            var maxDist = maxMins + rollIt * 2;
+
+
+            $( ".@item.ScheduleId" ).find( ".eventside" ).scrollLeft(rollIt);
+            }
+
+            rollTheTime();
+
+            window.setInterval(function(){
+
+            var d = new Date();// get date
+            var h = d.getHours();// get hours
+            var m = d.getMinutes();// get minutes
+
+            var scopeStart = @item.ScheduleStart ;// get start
+            var scopeEnd = @item.ScheduleEnd ;// get end
+
+            var minsPassed = h * 60 + m;// =minutes
+            var scopeDur = scopeEnd - scopeStart;// hours
+            var maxPass = scopeDur * 60;// max scope=mins
+            var maxRoll = maxPass * 2;// max distance
+            var mPass = minsPassed - (scopeStart * 60);//exact time passed in minutes
+            var xDist = mPass * 2;//120px=60min
+            var rollIt = xDist ;//how much to move on refresh
+
+            var maxActiveTime = scopeEnd - d.getHours();
+            var maxMins = maxActiveTime * 60 - d.getMinutes();
+            var maxDist = maxMins + rollIt * 2;
+
+
+            $( ".@item.ScheduleId" ).find( ".eventside" ).scrollLeft(rollIt);
+            }, 30000);
+
+
             </script>
         }
     }
