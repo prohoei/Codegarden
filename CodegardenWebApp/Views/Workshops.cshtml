@@ -1,34 +1,12 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Workshops>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-    Layout = "Master.cshtml";
+	Layout = "Master.cshtml";
 }
 
-<section class="resume-section p-3 d-flex" id="awards">
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="polls">
     <div class="my-auto">
-
-        <div id="bgImg" class="col-md-12">
-            <div id="awardsBG" style="background: url(../images/awardsImage.jpg) center center no-repeat;"></div>
-            <h2 id="awardsHeadline" class="mb-5 overlay">@Umbraco.Field("headline")</h2>
-        </div>
-
-        <div class="col-md-12 row" id="awardsDiv">
-
-            @{
-                var workshops = Model.Content.Children<Workshop>();
-
-                <div class="row">
-                    @foreach (var workshop in workshops)
-                    {
-                        <div class="col-md-6 box">
-                            <h2>@workshop.Headline</h2>
-                            <p>@workshop.BodyText</p>
-                            <a href="@workshop.Url">More details / Apply</a>
-                        </div>
-                    }
-                </div>
-            }
-
-        </div>
+        <h2 class="mb-5">Workshop</h2>
+        <p>Polls page example</p>
     </div>
 </section>

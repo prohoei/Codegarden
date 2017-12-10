@@ -4,31 +4,24 @@
 	Layout = "Master.cshtml";
 }
 
-<section class="resume-section p-3 d-flex" id="awards">
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
     <div class="my-auto">
-
-        <div id="bgImg" class="col-md-12">
-            <div id="awardsBG" style="background: url(../images/awardsImage.jpg) center center no-repeat;"></div>
-            <h2 id="awardsHeadline" class="mb-5 overlay">@Umbraco.Field("headline")</h2>
-        </div>
-
-        <div class="col-md-12 row" id="awardsDiv">
-
+        <h2 class="mb-5">Awards</h2>
+        <p>Awards page example</p>
+        <div class="col-md-4">
             @{
-                var Awards = Model.Content.Children<Award>();
+                var latest = Model.Content.Siblings<Awards>()
+                .Where(x => x.Id != Model.Content.Id)
+                .OrderByDescending(x => x.CreateDate)
+                .Take(3);
 
-                <div class="row">
-                    @foreach (var award in Awards)
+                <ul>
+                    @foreach (var item in latest)
                     {
-                        <div class="col-md-6 box">
-                            <h2>@award.Headline</h2>
-                            <p>@award.BodyText</p>
-                            <img id="boxImg" src="@award.AwardsImage.Url" class="img-fluid"/>
-                        </div>
+                        <li><a href="@item.Url">@item.Headline</a></li>
                     }
-                </div>
+                </ul>
             }
-
         </div>
     </div>
 </section>

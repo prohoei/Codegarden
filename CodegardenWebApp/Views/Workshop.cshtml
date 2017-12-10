@@ -1,33 +1,5 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Workshop>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-<<<<<<< HEAD
 	Layout = "Master.cshtml";
 }
-
-<section class="resume-section p-3 d-flex" id="workshop">
-    <div class="my-auto">
-
-        <div class="col-md-12 row">
-
-            @{
-                var workshops = Model.Content.Children<Workshop>();
-
-                <div class="row">
-                    @foreach (var workshop in workshops)
-                    {
-                        <div class="col-md-6">
-                            <h2>@Umbraco.Field("headline")</h2>
-                            @Umbraco.Field("bodyText")
-                        </div>
-                    }
-                </div>
-            }
-
-        </div>
-    </div>
-</section>
-=======
-    Layout = "Master.cshtml";
-}
->>>>>>> origin/Speakers

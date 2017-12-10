@@ -1,22 +1,5 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Speaker>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
-    Layout = "Master.cshtml";
+	Layout = "Master.cshtml";
 }
-
-@Html.Partial("Breadcrumb")
-
-<section class="resume-section p-3 d-flex flex-column" id="speakers">
-    <div class="my-auto">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <img src="@CurrentPage.SpeakerImage.Url" width="300" class="image-circle" />
-                <br /><br />
-                <h3>@Umbraco.Field("headline")</h3>
-                <div class="speaker-body">
-                    @Umbraco.Field("bodyText")
-                </div>
-            </div>
-        </div>
-    </div>
-</section>

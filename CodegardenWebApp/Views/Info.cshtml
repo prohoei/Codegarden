@@ -4,21 +4,9 @@
 	Layout = "Master.cshtml";
 }
 
-<section class="resume-section p-3 d-flex flex-column" id="info">
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="info">
     <div class="my-auto">
-        <div class="col-md-8 offset-md-2 info-header">
-            <h2 class="mb-4 headline">@Umbraco.Field("headline")</h2>
-            @Umbraco.Field("bodyText")
-        </div>
-
-        <div id="infoButtons" class="col-md-12">
-            <button id="dokBtn" class="btn btn-success btn-lg" attributes="https://www.google.com/maps/embed/v1/place?key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=DOC5000,Odense+DK">DOK5000 </button>
-            <button id="restaurantBtn" class="btn btn-success btn-lg" href="https://www.google.com/maps/embed/v1/place?key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=restaurants,Odense+DK">Restaurants</button>
-            <button id="barsBtn" class="btn btn-success btn-lg" href="https://www.google.com/maps/embed/v1/place?key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=bars,Odense+DK">Bars</button>
-        </div>
-
-        <div class="col-md-12 p-0" id="map">
-            <iframe height="560" width="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=DOK5000&key=AIzaSyA345WLtmKMoeB6v6lNS9ex_dLbKK7x3Ak&q=Odense+DK" allowfullscreen></iframe>
-        </div>
+        <h2 class="mb-5">Info</h2>
+        <p>Info page example</p>
     </div>
 </section>

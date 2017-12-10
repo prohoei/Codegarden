@@ -49,9 +49,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Personal link
 		///</summary>
 		[ImplementPropertyType("personalLink")]
-		public string PersonalLink
+		public Umbraco.Web.Models.RelatedLinks PersonalLink
 		{
-			get { return this.GetPropertyValue<string>("personalLink"); }
+			get { return this.GetPropertyValue<Umbraco.Web.Models.RelatedLinks>("personalLink"); }
 		}
 
 		///<summary>
