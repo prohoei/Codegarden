@@ -4,16 +4,15 @@
     Layout = "Master.cshtml";
 }
 
-<section class="resume-section p-3 d-flex" id="awards">
-    <div class="my-auto">
+<section class="resume-section p-3" id="workshop">
+    <div class="row">
 
-        <div id="bgImg" class="col-md-12">
-            <div id="awardsBG" style="background: url(../images/awardsImage.jpg) center center no-repeat;"></div>
-            <h2 id="awardsHeadline" class="mb-5 overlay">@Umbraco.Field("headline")</h2>
+        <div class="col-md-12 p-0">
+            <div class="bannerHeadImg" style="background: url(../images/awardsImage.jpg) center center no-repeat;"></div>
+            <h2 class="awardsHeadline mb-5 overlay-second">@Umbraco.Field("headline")</h2>
         </div>
 
-        <div class="col-md-12 row" id="awardsDiv">
-
+        <div class="col-md-12 m-0 p-0">
             @{
                 var workshops = Model.Content.Children<Workshop>();
 
@@ -28,7 +27,6 @@
                     }
                 </div>
             }
-
         </div>
     </div>
 </section>

@@ -46,15 +46,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Workshop Image
-		///</summary>
-		[ImplementPropertyType("workshopImage")]
-		public IPublishedContent WorkshopImage
-		{
-			get { return this.GetPropertyValue<IPublishedContent>("workshopImage"); }
-		}
-
-		///<summary>
 		/// Body text
 		///</summary>
 		[ImplementPropertyType("bodyText")]
